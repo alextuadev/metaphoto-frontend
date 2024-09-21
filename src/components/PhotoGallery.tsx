@@ -46,7 +46,12 @@ export default function PhotoGallery() {
         limit: limit.toString(),
       });
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/externalapi/photos?${queryParams}`
+        `${process.env.NEXT_PUBLIC_API_URL}/externalapi/photos?${queryParams}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
       if (!response.ok) throw new Error("Failed to fetch photos");
       const data = await response.json();
