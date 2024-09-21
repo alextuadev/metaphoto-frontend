@@ -52,6 +52,7 @@ export default function PhotoGallery() {
       const data = await response.json();
       setPhotos(data);
     } catch (err) {
+      console.error(err);
       setError("Error fetching photos. Please try again later.");
     } finally {
       setLoading(false);
